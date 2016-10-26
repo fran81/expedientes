@@ -1,0 +1,53 @@
+  <div class="row">
+    <div class="col-sm-12 col-md-7">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Edit User</h3>
+        </div>
+        <form class="form-horizontal" name="cuentaForm" ng-submit="vm.save(cuentaForm.$valid)" novalidate>
+          <div class="box-body">
+            <div ng-if="vm.alerts" class="alert alert-{{alert.type}}" ng-repeat="alert in vm.alerts">
+              <h4>{{alert.title}}</h4>
+              <p>{{alert.msg}}</p>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': cuentaForm.numero.$invalid && ( vm.formSubmitted || cuentaForm.name.$touched) }">
+              <label for="inputnumero" class="col-sm-2 control-label">Numero</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="vm.numero" name="numero" placeholder="Número" required>
+                <p ng-show="cuentaForm.numero.$error.required && ( vm.formSubmitted || cuentaForm.numero.$touched)" class="help-block">Número is required.</p>
+              </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': cuentaForm.nombre.$invalid && ( vm.formSubmitted || cuentaForm.nombre.$touched) }">
+              <label for="inputnombre3" class="col-sm-2 control-label">Nombre</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="vm.nombre" name="nombre" placeholder="Nombre" required>
+                <p ng-show="cuentaForm.nombre.$error.required && ( vm.formSubmitted || cuentaForm.nombre.$touched)" class="help-block">Nombre is required.</p>
+              </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': cuentaForm.descripcion.$invalid && ( vm.formSubmitted || cuentaForm.descripcion.$touched) }">
+              <label for="inputdescripcion3" class="col-sm-2 control-label">Descripcion</label>
+              <div class="col-sm-10">
+                <input type="descripcion" class="form-control" ng-model="vm.descripcion" name="descripcion" placeholder="descripcion" required>
+                <p ng-show="cuentaForm.descripcion.$error.required && ( vm.formSubmitted || cuentaForm.descripcion.$touched)" class="help-block">descripcion is required.</p>
+               </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Activa</label>
+              <div class="col-sm-10">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" checklist-value="1" checklist-model="vm.activa"> 
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="box-footer">
+            <a ui-sref="app.userlist" class="btn btn-default"><i class="fa fa-angle-double-left"></i> Back</a>
+            <button type="submit" class="btn btn-primary pull-right">Cargar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
